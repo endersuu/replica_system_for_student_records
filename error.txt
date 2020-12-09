@@ -1,0 +1,10 @@
+WARNING: Number of skills is more than 10 in this line: 4:f4,l4,4.4,major4,skill4_4,skill4_2,skill4_3,skill4_4,skill4_4m,skill4_2m,skill4_3m,skill4_4m,skill4_4mm,skill4_2mm,skill4_3mm,skill4_4mm,skill4_4mmm,skill4_2mmm,skill4_3mmm,skill4_4mmm,
+Process as usual
+WARNING: Empty line is in input file
+Drop it and move next line
+WARNING: RuntimeException occur on this line: 2,2,major1:major1_m StudentRecord try to update a record, but origValue "major1" can not be found in StudentRecord{2,f2,l2,2.2,major2,[skill2_4, skill2_2, skill2_3]}
+Drop it and move next line
+WARNING: newValue is Empty in line: 2,1,skill1_1:
+Drop it and move next line
+WARNING: RuntimeException occur on this line: 5,2,skill2_2:skill2_2_m TreeHelper can not find this tree: 5
+Drop it and move next line

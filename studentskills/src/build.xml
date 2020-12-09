@@ -1,0 +1,60 @@
+<project name="studentskills" default="compile_all" basedir="..">
+
+    <property name="BUILD.compiler"       value="modern"/>
+    <property name="src"                  value="src"/>
+    <property name="BUILD"                value="src/BUILD"/>
+    <property name="classes"              value="${BUILD}/classes"/>
+
+    <target name="all" depends="compile_all"/>
+
+    <target name="compile_all"
+            depends="studentskills"/>
+
+    <target name="clean">
+        <delete dir="${BUILD}"/>
+    </target>
+
+    <!-- Prepare target directories -->
+    <target name="prepare">
+        <mkdir dir="${BUILD}"/>
+        <mkdir dir="${classes}"/>
+    </target>
+
+    <target name="jar">
+        <mkdir dir="${BUILD}/jar"/>
+        <jar destfile="${BUILD}/jar/studentskills.jar" basedir="${BUILD}/classes">
+            <manifest>
+                <attribute name="Main-Class" value="studentskills.driver.Driver"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <!-- ** means all subdirectories as well -->
+    <!-- * means all files in the current directory -->
+    <!-- for just java files use *.java -->
+
+    <target name="studentskills" depends="prepare">
+        <javac includeantruntime="false" srcdir="${src}"
+               includes="studentskills/**"
+               excludes="**/package.html"
+               destdir="${classes}"
+               classpath="${classes}"
+               debug="on"
+               optimize="on"
+               deprecation="off"/>
+    </target>
+
+    <target name="run" depends="jar">
+        <java jar="${BUILD}/jar/studentskills.jar"  fork="true">
+            <arg value="${input}"/> <!-- input file -->
+            <arg value="${modify}"/> <!-- modify file -->
+            <arg value="${out1}"/> <!-- out1 file -->
+            <arg value="${out2}"/> <!-- out2 file -->
+            <arg value="${out3}"/> <!-- out3 file -->
+            <arg value="${error}"/> <!-- error file -->
+            <arg value="${debug}"/> <!-- debug file -->
+
+        </java>
+    </target>
+
+</project>
